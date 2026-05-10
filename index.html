@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años ✦</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cursive: ['Great Vibes', 'cursive'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::selection { background-color: #34d399; color: #fff; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; transform: scale(0.7) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.3) rotate(15deg); }
+        }
+        @keyframes twinkle-slow {
+            0%, 100% { opacity: 0.08; }
+            50% { opacity: 0.65; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(52,211,153,0.2), inset 0 0 10px rgba(52,211,153,0.03); }
+            50% { box-shadow: 0 0 35px rgba(52,211,153,0.4), inset 0 0 15px rgba(52,211,153,0.06); }
+        }
+        @keyframes border-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes frost-sweep {
+            0% { transform: translateX(-80%) rotate(25deg) scaleY(2); }
+            100% { transform: translateX(80%) rotate(25deg) scaleY(2); }
+        }
+        @keyframes frost-sweep2 {
+            0% { transform: translateX(80%) rotate(-20deg) scaleY(2.5); }
+            100% { transform: translateX(-80%) rotate(-20deg) scaleY(2.5); }
+        }
+        @keyframes frost-glint {
+            0%, 100% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+        @keyframes crystal-sparkle {
+            0%, 100% { opacity: 0; transform: rotate(0deg) scale(0); }
+            15% { opacity: 0.9; transform: rotate(15deg) scale(1); }
+            30% { opacity: 0; transform: rotate(30deg) scale(0); }
+        }
+        @keyframes frost-breathe {
+            0%, 100% { opacity: 0.06; }
+            50% { opacity: 0.1; }
+        }
+        @keyframes music-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(52,211,153,0); }
+        }
+        @keyframes bar-bounce {
+            0%, 100% { height: 4px; }
+            50% { height: var(--h, 14px); }
+        }
+        @keyframes card-in {
+            0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #6b7280 0%, #34d399 25%, #374151 50%, #6ee7b7 75%, #6b7280 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 5s linear infinite;
+        }
+
+        .star {
+            position: absolute; pointer-events: none;
+            animation: twinkle var(--dur, 3s) ease-in-out infinite;
+            animation-delay: var(--del, 0s);
+        }
+        .star-slow {
+            animation: twinkle-slow var(--dur, 5s) ease-in-out infinite;
+            animation-delay: var(--del, 0s);
+        }
+
+        body {
+            background:
+                repeating-linear-gradient(52deg, transparent, transparent 15px, rgba(255,255,255,0.2) 15px, rgba(255,255,255,0.2) 16px),
+                repeating-linear-gradient(-52deg, transparent, transparent 19px, rgba(255,255,255,0.18) 19px, rgba(255,255,255,0.18) 20px),
+                repeating-linear-gradient(8deg, transparent, transparent 25px, rgba(255,255,255,0.1) 25px, rgba(255,255,255,0.1) 26px),
+                repeating-linear-gradient(-80deg, transparent, transparent 30px, rgba(255,255,255,0.12) 30px, rgba(255,255,255,0.12) 31px),
+                radial-gradient(circle at 10% 15%, rgba(255,255,255,0.5) 0%, transparent 12%),
+                radial-gradient(circle at 85% 10%, rgba(255,255,255,0.45) 0%, transparent 10%),
+                radial-gradient(circle at 45% 55%, rgba(255,255,255,0.35) 0%, transparent 18%),
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 0%, transparent 9%),
+                radial-gradient(circle at 75% 70%, rgba(255,255,255,0.38) 0%, transparent 13%),
+                radial-gradient(circle at 55% 20%, rgba(255,255,255,0.3) 0%, transparent 11%),
+                radial-gradient(circle at 90% 85%, rgba(255,255,255,0.35) 0%, transparent 8%),
+                radial-gradient(circle at 5% 50%, rgba(255,255,255,0.28) 0%, transparent 14%),
+                radial-gradient(ellipse at 30% 30%, rgba(200,215,225,0.3) 0%, transparent 20%),
+                radial-gradient(ellipse at 70% 40%, rgba(190,210,220,0.25) 0%, transparent 15%),
+                radial-gradient(ellipse at 50% 80%, rgba(210,220,228,0.2) 0%, transparent 22%),
+                linear-gradient(160deg, #b8c0c8 0%, #cdd2d7 15%, #c0c7cd 30%, #dce0e3 45%, #c5cacc 60%, #e3e6e9 75%, #bfc5ca 90%, #d0d4d8 100%);
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: fixed; inset: -50%; width: 200%; height: 200%; z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+            background-size: 256px 256px; pointer-events: none;
+            animation: frost-breathe 5s ease-in-out infinite;
+        }
+
+        .frost-crystals {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.06;
+            background-image:
+                linear-gradient(60deg, transparent 42%, rgba(255,255,255,0.6) 42.3%, transparent 42.6%),
+                linear-gradient(-60deg, transparent 42%, rgba(255,255,255,0.6) 42.3%, transparent 42.6%),
+                linear-gradient(0deg, transparent 48%, rgba(255,255,255,0.4) 48.2%, transparent 48.4%),
+                linear-gradient(120deg, transparent 46%, rgba(255,255,255,0.3) 46.2%, transparent 46.4%),
+                linear-gradient(-120deg, transparent 46%, rgba(255,255,255,0.3) 46.2%, transparent 46.4%);
+            background-size: 70px 70px, 70px 70px, 90px 90px, 110px 110px, 110px 110px;
+        }
+        .frost-sweep-1 {
+            position: fixed; top: -30%; left: -40%; width: 70%; height: 160%;
+            background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.1) 55%, transparent 75%);
+            z-index: 0; pointer-events: none; animation: frost-sweep 6s ease-in-out infinite;
+        }
+        .frost-sweep-2 {
+            position: fixed; top: -15%; right: -25%; width: 55%; height: 130%;
+            background: linear-gradient(90deg, transparent 28%, rgba(255,255,255,0.08) 44%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.08) 56%, transparent 72%);
+            z-index: 0; pointer-events: none; animation: frost-sweep2 8s ease-in-out infinite;
+        }
+        .frost-sweep-3 {
+            position: fixed; bottom: -20%; left: 20%; width: 40%; height: 140%;
+            background: linear-gradient(90deg, transparent 30%, rgba(200,220,230,0.06) 46%, rgba(200,220,230,0.15) 50%, rgba(200,220,230,0.06) 54%, transparent 70%);
+            z-index: 0; pointer-events: none; animation: frost-sweep 11s ease-in-out infinite reverse;
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.45);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 0 50px rgba(255,255,255,0.04);
+        }
+        .glass-strong {
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.55);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 0 60px rgba(255,255,255,0.06);
+        }
+
+        .countdown-box {
+            background: rgba(255,255,255,0.35); backdrop-filter: blur(12px);
+            border: 1px solid rgba(52,211,153,0.22);
+            animation: pulse-glow 3s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(52,211,153,0.05), inset 0 1px 0 rgba(255,255,255,0.5);
+        }
+        .countdown-box:nth-child(2) { animation-delay: 0.5s; }
+        .countdown-box:nth-child(3) { animation-delay: 1s; }
+        .countdown-box:nth-child(4) { animation-delay: 1.5s; }
+
+        .photo-frame {
+            border: 3px solid rgba(255,255,255,0.6);
+            box-shadow: 0 0 40px rgba(52,211,153,0.12), 0 0 100px rgba(52,211,153,0.06), 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .border-gradient { position: relative; }
+        .border-gradient::before {
+            content: '';
+            position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+            background: linear-gradient(135deg, rgba(192,192,192,0.6), rgba(52,211,153,0.6), rgba(192,192,192,0.6));
+            background-size: 300% 300%; animation: border-flow 4s ease infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+
+        .scroll-reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #cdd1d5; }
+        ::-webkit-scrollbar-thumb { background: #34d399; border-radius: 3px; }
+        html { scroll-behavior: smooth; }
+
+        .detail-icon-ring {
+            background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(200,210,220,0.3));
+            border: 1px solid rgba(52,211,153,0.25);
+        }
+
+        input, select, textarea { font-family: 'Poppins', sans-serif; }
+        input::placeholder, textarea::placeholder { color: #9ca3af; }
+
+        .glint-dot {
+            position: absolute; width: 4px; height: 4px; border-radius: 50%; background: white;
+            pointer-events: none;
+            animation: frost-glint var(--dur, 3s) ease-in-out infinite; animation-delay: var(--del, 0s);
+            box-shadow: 0 0 8px rgba(255,255,255,1), 0 0 15px rgba(52,211,153,0.3);
+        }
+        .crystal-sparkle {
+            position: absolute; pointer-events: none; color: rgba(255,255,255,0.85);
+            animation: crystal-sparkle var(--dur, 4s) ease-in-out infinite; animation-delay: var(--del, 0s);
+            font-size: var(--size, 10px);
+            text-shadow: 0 0 10px rgba(52,211,153,0.5), 0 0 4px rgba(255,255,255,1);
+        }
+
+        /* ===== PANTALLA DE BIENVENIDA ===== */
+        .welcome-overlay {
+            position: fixed; inset: 0; z-index: 100;
+            background: rgba(20, 25, 32, 0.65);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), visibility 0.9s cubic-bezier(0.4,0,0.2,1);
+        }
+        .welcome-overlay.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .welcome-card {
+            background: rgba(15, 20, 28, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 36px 32px;
+            max-width: 400px;
+            width: 100%;
+            animation: card-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+            position: relative;
+            overflow: hidden;
+        }
+        .welcome-card::before {
+            content: '';
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 80%, rgba(52,211,153,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .wc-top-stars {
+            display: flex; justify-content: center; gap: 10px;
+            margin-bottom: 18px;
+        }
+        .wc-top-stars span {
+            color: #34d399; opacity: 0.35; font-size: 10px;
+        }
+        .wc-divider {
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(52,211,153,0.15), transparent);
+            margin: 18px 0;
+        }
+        .wc-term {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+        }
+        .wc-term-icon {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            background: rgba(52,211,153,0.1);
+            border: 1px solid rgba(52,211,153,0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 1px;
+        }
+        .wc-term-icon .iconify { color: #4ade80; font-size: 14px; }
+        .wc-term-text {
+            font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,0.55);
+        }
+        .wc-term-text strong {
+            color: rgba(255,255,255,0.8); font-weight: 500;
+        }
+        .wc-term-text em {
+            color: rgba(52,211,153,0.7); font-style: normal; font-weight: 500;
+        }
+        .wc-accept-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(52,211,153,0.18), rgba(52,211,153,0.08));
+            border: 1px solid rgba(52,211,153,0.3);
+            color: #4ade80;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .wc-accept-btn:hover {
+            background: linear-gradient(135deg, rgba(52,211,153,0.28), rgba(52,211,153,0.12));
+            border-color: rgba(52,211,153,0.5);
+            box-shadow: 0 0 30px rgba(52,211,153,0.15);
+            transform: translateY(-1px);
+        }
+        .wc-accept-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        .wc-note {
+            text-align: center;
+            margin-top: 14px;
+            color: rgba(255,255,255,0.18);
+            font-size: 9px;
+            letter-spacing: 0.05em;
+        }
+        .wc-note span { color: rgba(52,211,153,0.3); }
+
+        /* Botón de música flotante */
+        .music-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 50;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .music-btn.show { display: flex; }
+        .music-btn:hover {
+            background: rgba(255,255,255,0.6);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+        }
+        .music-btn.playing { animation: music-pulse 2s ease-in-out infinite; }
+        .music-btn .icon-pause,
+        .music-btn .bars { display: none; }
+        .music-btn.playing .icon-play { display: none; }
+        .music-btn.playing .icon-pause { display: block; }
+        .music-btn.playing .bars { display: flex; }
+
+        .music-bars {
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            gap: 2px;
+            align-items: flex-end;
+            height: 14px;
+        }
+        .music-btn.playing .music-bars { display: flex; }
+        .music-bar {
+            width: 2.5px;
+            height: 4px;
+            border-radius: 2px;
+            background: #34d399;
+            animation: bar-bounce var(--dur, 0.6s) ease-in-out infinite;
+            animation-delay: var(--del, 0s);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 overflow-x-hidden relative">
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="Ma Belle Evangeline  Letra Latino.m4a" type="audio/mp4">
+        <source src="Ma Belle Evangeline  Letra Latino.m4a" type="audio/m4a">
+    </audio>
+
+    <!-- Pantalla de bienvenida -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-card">
+            <div class="wc-top-stars">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+
+            <p class="font-cursive text-3xl md:text-4xl text-center mb-1" style="color: rgba(255,255,255,0.85);">Eilyn Rosa</p>
+            <p class="text-center text-[10px] tracking-[0.3em] uppercase" style="color: rgba(255,255,255,0.2);">Invitación digital</p>
+
+            <div class="wc-divider"></div>
+
+            <p class="text-center text-[10px] font-medium tracking-[0.2em] uppercase mb-5" style="color: rgba(52,211,153,0.5);">Términos y condiciones</p>
+
+            <div class="wc-term">
+                <div class="wc-term-icon">
+                    <span class="iconify" data-icon="lucide:party-popper"></span>
+                </div>
+                <div class="wc-term-text">
+                    Te comprometes a <strong>pasársela increíble</strong> en mi celebración. Bailar hasta que duelan los pies está <em>expresamente permitido</em>.
+                </div>
+            </div>
+
+            <div class="wc-term">
+                <div class="wc-term-icon">
+                    <span class="iconify" data-icon="lucide:camera"></span>
+                </div>
+                <div class="wc-term-text">
+                    Subirás <strong>todas las fotos</strong> que tomes al álbum compartido. Selfie incluido, no seas tímido. <em>Es por ley.</em>
+                </div>
+            </div>
+
+            <div class="wc-term">
+                <div class="wc-term-icon">
+                    <span class="iconify" data-icon="lucide:baby"></span>
+                </div>
+                <div class="wc-term-text">
+                    No se permiten <strong>niños</strong>. <em>¡los peques a dormir temprano!</em>
+                </div>
+            </div>
+
+            <button class="wc-accept-btn" id="acceptBtn">
+                <span class="iconify text-lg" data-icon="lucide:sparkles"></span>
+                Aceptar y abrir invitación
+            </button>
+
+            <p class="wc-note">Se reproducirá música de fondo <span>♪</span></p>
+        </div>
+    </div>
+
+    <!-- Botón de música -->
+    <div class="music-btn" id="musicBtn" title="Reproducir / Pausar música">
+        <span class="icon-play">
+            <span class="iconify text-emerald-500 text-xl" data-icon="lucide:music"></span>
+        </span>
+        <span class="icon-pause">
+            <span class="iconify text-emerald-500 text-xl" data-icon="lucide:music"></span>
+        </span>
+        <div class="music-bars">
+            <div class="music-bar" style="--dur:0.5s;--del:0s;--h:14px"></div>
+            <div class="music-bar" style="--dur:0.65s;--del:0.1s;--h:10px"></div>
+            <div class="music-bar" style="--dur:0.55s;--del:0.2s;--h:12px"></div>
+            <div class="music-bar" style="--dur:0.7s;--del:0.05s;--h:8px"></div>
+        </div>
+    </div>
+
+    <div class="frost-crystals"></div>
+    <div class="frost-sweep-1"></div>
+    <div class="frost-sweep-2"></div>
+    <div class="frost-sweep-3"></div>
+
+    <div id="stars-container" class="fixed inset-0 z-[1] pointer-events-none overflow-hidden"></div>
+    <div id="glints-container" class="fixed inset-0 z-[1] pointer-events-none overflow-hidden"></div>
+    <div id="crystals-container" class="fixed inset-0 z-[1] pointer-events-none overflow-hidden"></div>
+
+    <div class="fixed inset-0 z-[1] pointer-events:none">
+        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-emerald-400/[0.04] rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-emerald-300/[0.03] rounded-full blur-[120px]"></div>
+        <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-white/[0.1] rounded-full blur-[100px]"></div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-12">
+        <div class="star text-emerald-400 text-2xl top-[6%] left-[10%]" style="--dur:2.5s;--del:0s">★</div>
+        <div class="star text-gray-400 text-lg top-[12%] right-[15%]" style="--dur:3.5s;--del:0.8s">★</div>
+        <div class="star text-emerald-300 text-sm top-[22%] left:[5%]" style="--dur:2s;--del:1.2s">★</div>
+        <div class="star text-gray-500 text-3xl top-[8%] right:[30%]" style="--dur:4s;--del:0.3s">★</div>
+        <div class="star text-emerald-400 text-xl bottom-[20%] left:[8%]" style="--dur:3s;--del:0.5s">★</div>
+        <div class="star text-gray-400 text-sm bottom-[30%] right:[10%]" style="--dur:2.8s;--del:1s">★</div>
+        <div class="star text-emerald-300 text-2xl bottom-[15%] right:[25%]" style="--dur:3.2s;--del:0.2s">★</div>
+
+        <p class="text-emerald-500/80 text-xs tracking-[0.3em] uppercase font-medium mb-6 scroll-reveal">★ &nbsp; Invitación Especial &nbsp; ★</p>
+
+        <div class="relative mb-10 scroll-reveal" style="transition-delay:0.1s">
+            <div class="photo-frame rounded-2xl w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden mx-auto" style="animation: float 6s ease-in-out infinite;">
+                <img src="foto.jpg" alt="La Quinceañera" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='foto.png'">
+            </div>
+        </div>
+
+        <h1 class="font-cursive text-6xl md:text-8xl lg:text-9xl shimmer-text leading-tight text-center mb-2 pt-4 scroll-reveal" style="transition-delay:0.2s">Mis XV Años</h1>
+        <p class="font-cursive text-2xl md:text-3xl text-gray-400/70 mb-8 scroll-reveal" style="transition-delay:0.3s">~ Una noche mágica ~</p>
+
+        <div class="absolute bottom-8 flex flex-col items-center gap-2 text-gray-400/50 scroll-reveal" style="transition-delay:0.5s">
+            <span class="text-[10px] tracking-[0.2em] uppercase">Descubre más</span>
+            <span class="iconify text-xl animate-bounce" data-icon="lucide:chevron-down"></span>
+        </div>
+    </section>
+
+    <!-- ===== COUNTDOWN ===== -->
+    <section class="relative z-10 py-16 md:py-24 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-emerald-500/70 text-xs tracking-[0.3em] uppercase font-medium mb-3 scroll-reveal">Falta muy poco</p>
+            <h2 class="font-cursive text-4xl md:text-5xl text-gray-800 mb-12 scroll-reveal" style="transition-delay:0.1s">La cuenta regresiva</h2>
+            <div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 scroll-reveal" style="transition-delay:0.2s">
+                <div class="countdown-box rounded-2xl p-3 sm:p-6 md:p-8 text-center border-gradient">
+                    <span id="days" class="block text-2xl sm:text-4xl md:text-6xl font-light text-emerald-500 tabular-nums">00</span>
+                    <span class="block text-[8px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase text-gray-500/70 mt-1 sm:mt-2 font-medium">Días</span>
+                </div>
+                <div class="countdown-box rounded-2xl p-3 sm:p-6 md:p-8 text-center border-gradient">
+                    <span id="hours" class="block text-2xl sm:text-4xl md:text-6xl font-light text-emerald-500 tabular-nums">00</span>
+                    <span class="block text-[8px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase text-gray-500/70 mt-1 sm:mt-2 font-medium">Horas</span>
+                </div>
+                <div class="countdown-box rounded-2xl p-3 sm:p-6 md:p-8 text-center border-gradient">
+                    <span id="minutes" class="block text-2xl sm:text-4xl md:text-6xl font-light text-emerald-500 tabular-nums">00</span>
+                    <span class="block text-[8px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase text-gray-500/70 mt-1 sm:mt-2 font-medium">Minutos</span>
+                </div>
+                <div class="countdown-box rounded-2xl p-3 sm:p-6 md:p-8 text-center border-gradient">
+                    <span id="seconds" class="block text-2xl sm:text-4xl md:text-6xl font-light text-emerald-500 tabular-nums">00</span>
+                    <span class="block text-[8px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase text-gray-500/70 mt-1 sm:mt-2 font-medium">Segundos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DETAILS ===== -->
+    <section class="relative z-10 py-16 md:py-24 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="text-emerald-500/70 text-xs tracking-[0.3em] uppercase font-medium mb-3 scroll-reveal">Detalles del evento</p>
+                <h2 class="font-cursive text-4xl md:text-5xl text-gray-800 scroll-reveal" style="transition-delay:0.1s">Estás invitado</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-8 text-center scroll-reveal hover:border-emerald-400/30 transition-all duration-300 group" style="transition-delay:0.1s">
+                    <div class="detail-icon-ring w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                        <span class="iconify text-2xl text-emerald-500" data-icon="lucide:calendar-heart"></span>
+                    </div>
+                    <h3 class="text-gray-700 font-medium text-sm tracking-wide uppercase mb-2">Fecha</h3>
+                    <p class="font-cursive text-3xl text-emerald-600">16 de Mayo</p>
+                    <p class="text-gray-400 text-sm mt-1">2026</p>
+                </div>
+                <div class="glass rounded-2xl p-8 text-center scroll-reveal hover:border-emerald-400/30 transition-all duration-300 group" style="transition-delay:0.2s">
+                    <div class="detail-icon-ring w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                        <span class="iconify text-2xl text-emerald-500" data-icon="lucide:clock"></span>
+                    </div>
+                    <h3 class="text-gray-700 font-medium text-sm tracking-wide uppercase mb-2">Hora</h3>
+                    <p class="font-cursive text-3xl text-emerald-600">8:00 PM</p>
+                    <p class="text-gray-400 text-sm mt-1">20:00 horas</p>
+                </div>
+                <div class="glass rounded-2xl p-8 text-center scroll-reveal hover:border-emerald-400/30 transition-all duration-300 group" style="transition-delay:0.3s">
+                    <div class="detail-icon-ring w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                        <span class="iconify text-2xl text-emerald-500" data-icon="lucide:shirt"></span>
+                    </div>
+                    <h3 class="text-gray-700 font-medium text-sm tracking-wide uppercase mb-2">Dress Code</h3>
+                    <p class="font-cursive text-3xl text-emerald-600">Formal</p>
+                    <p class="text-gray-400 text-sm mt-1">Elegancia requerida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LOCATION ===== -->
+    <section class="relative z-10 py-16 md:py-24 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-emerald-500/70 text-xs tracking-[0.3em] uppercase font-medium mb-3 scroll-reveal">¿Dónde será?</p>
+            <h2 class="font-cursive text-4xl md:text-5xl text-gray-800 mb-10 scroll-reveal" style="transition-delay:0.1s">Ubicación</h2>
+            <div class="glass rounded-2xl p-8 md:p-10 scroll-reveal border-gradient" style="transition-delay:0.2s">
+                <div class="detail-icon-ring w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="iconify text-2xl text-emerald-500" data-icon="lucide:map-pin"></span>
+                </div>
+                <p class="text-gray-600 text-lg mb-2">Salón Casa Real</p>
+                <p class="text-gray-400 text-sm mb-8">Toca el botón para abrir en Google Maps</p>
+                <a href="https://maps.app.goo.gl/dyKWPHg17tub3pyi6" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-3 bg-emerald-400/10 hover:bg-emerald-400/20 border border-emerald-400/30 hover:border-emerald-300/50 text-emerald-600 px-8 py-4 rounded-full transition-all duration-300 group">
+                    <span class="iconify text-xl group-hover:scale-110 transition-transform" data-icon="lucide:navigation"></span>
+                    <span class="text-sm font-medium tracking-wide">Abrir en Google Maps</span>
+                    <span class="iconify text-lg group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GIFT ===== -->
+    <section class="relative z-10 py-16 md:py-24 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-emerald-500/70 text-xs tracking-[0.3em] uppercase font-medium mb-3 scroll-reveal">Tu presente</p>
+            <h2 class="font-cursive text-4xl md:text-5xl text-gray-800 mb-6 scroll-reveal" style="transition-delay:0.1s">Lluvia de Sobres</h2>
+            <div class="glass rounded-2xl p-8 md:p-12 scroll-reveal" style="transition-delay:0.2s">
+                <div class="flex justify-center gap-3 mb-6">
+                    <span class="text-3xl star-slow" style="--dur:2s;--del:0s">★</span>
+                    <span class="text-4xl star-slow" style="--dur:2.5s;--del:0.3s">★</span>
+                    <span class="text-5xl" style="animation: twinkle 2s ease-in-out infinite;">💌</span>
+                    <span class="text-4xl star-slow" style="--dur:2.5s;--del:0.6s">★</span>
+                    <span class="text-3xl star-slow" style="--dur:2s;--del:0.9s">★</span>
+                </div>
+                <p class="text-gray-600 text-lg leading-relaxed max-w-lg mx-auto">
+                    Tu presencia es el mejor regalo, pero si deseas obsequiarme algo especial,
+                    <span class="text-emerald-600 font-cursive text-2xl"> mi lluvia de sobres</span>
+                    <span class="text-gray-600"> será recibida con mucho amor.</span>
+                </p>
+                <div class="mt-8 flex justify-center gap-2 text-emerald-400/40 text-sm">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ÁLBUM DE RECUERDOS ===== -->
+    <section class="relative z-10 py-16 md:py-24 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-emerald-500/70 text-xs tracking-[0.3em] uppercase font-medium mb-3 scroll-reveal">Momentos capturados</p>
+            <h2 class="font-cursive text-4xl md:text-5xl text-gray-800 mb-10 scroll-reveal" style="transition-delay:0.1s">Álbum de Recuerdos</h2>
+            <div class="glass rounded-2xl p-8 md:p-12 scroll-reveal border-gradient" style="transition-delay:0.2s">
+                <div class="detail-icon-ring w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="iconify text-3xl text-emerald-500" data-icon="lucide:camera"></span>
+                </div>
+                <p class="text-gray-600 text-lg leading-relaxed max-w-md mx-auto mb-3">¡Sube todas las fotos que tomes esa noche!</p>
+                <p class="text-gray-400 text-sm mb-8">Las fotos quedarán guardadas en un álbum compartido para que todos puedan ver los recuerdos.</p>
+                <a href="https://drive.google.com/drive/folders/1E9QePmBsTOCuwXDWxW-uJdef4truBMF5?usp=sharing"
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm tracking-wide uppercase px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-emerald-400/25 active:scale-[0.98] group">
+                    <span class="iconify text-xl group-hover:scale-110 transition-transform" data-icon="lucide:upload-cloud"></span>
+                    <span>Subir fotos a Google Drive</span>
+                    <span class="iconify text-lg group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+                </a>
+                <div class="mt-8 flex justify-center gap-2 text-emerald-400/40 text-sm">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RSVP ===== -->
+    <section class="relative z-10 py-16 md:py-24 px-4">
+        <div class="max-w-xl mx-auto text-center">
+            <p class="text-emerald-500/70 text-xs tracking-[0.3em] uppercase font-medium mb-3 scroll-reveal">Confirma tu asistencia</p>
+            <h2 class="font-cursive text-4xl md:text-5xl text-gray-800 mb-3 scroll-reveal" style="transition-delay:0.1s">RSVP</h2>
+            <p class="text-gray-400 text-sm mb-10 scroll-reveal" style="transition-delay:0.15s">
+                <span class="iconify inline text-emerald-400/60 align-middle mr-1" data-icon="lucide:alert-circle"></span>
+                Confirmar antes del <span class="text-emerald-600 font-medium">12 de mayo</span>
+            </p>
+            <div class="glass-strong rounded-2xl p-8 md:p-10 scroll-reveal border-gradient" style="transition-delay:0.2s">
+                <form id="rsvpForm" class="space-y-5">
+                    <div class="text-left">
+                        <label class="block text-gray-600 text-xs tracking-wide uppercase mb-2 font-medium">Tu nombre completo</label>
+                        <input type="text" id="guestName" required placeholder="Ej: Ciro Diaz"
+                               class="w-full bg-white/60 border border-gray-300/50 focus:border-emerald-400/50 rounded-xl px-5 py-3.5 text-gray-700 text-sm placeholder:text-gray-400 outline-none transition-colors duration-300 backdrop-blur-sm">
+                    </div>
+                    <div class="text-left">
+                        <label class="block text-gray-600 text-xs tracking-wide uppercase mb-3 font-medium">¿Asistirás?</label>
+                        <div class="flex gap-4">
+                            <label class="flex-1 cursor-pointer">
+                                <input type="radio" name="attendance" value="yes" class="hidden peer" checked>
+                                <div class="peer-checked:bg-emerald-50 peer-checked:border-emerald-400/50 peer-checked:text-emerald-600 bg-white/40 border border-gray-300/50 rounded-xl py-3.5 text-center text-sm text-gray-500 transition-all duration-300">
+                                    <span class="iconify inline mr-1 align-middle" data-icon="lucide:check-circle"></span> Sí, iré
+                                </div>
+                            </label>
+                            <label class="flex-1 cursor-pointer">
+                                <input type="radio" name="attendance" value="no" class="hidden peer">
+                                <div class="peer-checked:bg-red-50 peer-checked:border-red-400/50 peer-checked:text-red-500 bg-white/40 border border-gray-300/50 rounded-xl py-3.5 text-center text-sm text-gray-500 transition-all duration-300">
+                                    <span class="iconify inline mr-1 align-middle" data-icon="lucide:x-circle"></span> No podré
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <label class="block text-gray-600 text-xs tracking-wide uppercase mb-2 font-medium">
+                            Mensaje para la quinceañera
+                            <span class="text-gray-400 normal-case tracking-normal">(opcional)</span>
+                        </label>
+                        <textarea id="specialMessage" rows="3" placeholder="Escribe un mensaje lindo..."
+                                  class="w-full bg-white/60 border border-gray-300/50 focus:border-emerald-400/50 rounded-xl px-5 py-3.5 text-gray-700 text-sm placeholder:text-gray-400 outline-none transition-colors duration-300 backdrop-blur-sm resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                            class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm tracking-wide uppercase py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-emerald-400/25 active:scale-[0.98] mt-2 flex items-center justify-center gap-2">
+                        <span class="iconify text-lg" data-icon="lucide:message-circle"></span>
+                        Confirmar por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="relative z-10 py-12 px-4 text-center border-t border-gray-300/20">
+        <div class="flex justify-center gap-2 text-emerald-400/30 text-xs mb-4">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="font-cursive text-2xl text-gray-500/70 mb-1">Mis XV Años</p>
+        <p class="text-gray-400 text-xs tracking-wide">16 de mayo de 2026 &bull; 8:00 PM</p>
+        <p class="text-gray-400/60 text-[10px] mt-4">Hecho con ★ y mucho amor</p>
+    </footer>
+
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3"></div>
+
+    <script>
+        /* ===== BIENVENIDA + MÚSICA ===== */
+        (function(){
+            var audio = document.getElementById('bgMusic');
+            var overlay = document.getElementById('welcomeOverlay');
+            var acceptBtn = document.getElementById('acceptBtn');
+            var musicBtn = document.getElementById('musicBtn');
+            var isPlaying = false;
+
+            acceptBtn.addEventListener('click', function(){
+                overlay.classList.add('hide');
+                audio.play().then(function(){
+                    isPlaying = true;
+                    musicBtn.classList.add('show','playing');
+                }).catch(function(){});
+            });
+
+            musicBtn.addEventListener('click', function(){
+                if(isPlaying){
+                    audio.pause();
+                    musicBtn.classList.remove('playing');
+                } else {
+                    audio.play().then(function(){
+                        musicBtn.classList.add('playing');
+                    }).catch(function(){});
+                }
+                isPlaying = !isPlaying;
+            });
+        })();
+
+        /* ===== ESTRELLAS ===== */
+        (function() {
+            var container = document.getElementById('stars-container');
+            var glints = document.getElementById('glints-container');
+            var crystals = document.getElementById('crystals-container');
+            var colors = ['text-emerald-400','text-emerald-300','text-emerald-500','text-gray-400','text-gray-500','text-gray-300'];
+            for (var i = 0; i < (window.innerWidth < 768 ? 50 : 100); i++) {
+                var s = document.createElement('span');
+                s.textContent = '★';
+                s.className = colors[Math.floor(Math.random()*colors.length)] + ' ' + (Math.random()>0.6?'star-slow':'star');
+                s.style.cssText = 'font-size:'+(Math.random()*16+6)+'px;top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;--dur:'+(Math.random()*4+2).toFixed(1)+'s;--del:'+(Math.random()*5).toFixed(1)+'s;opacity:'+(Math.random()*0.5+0.08)+';filter:drop-shadow(0 0 '+(Math.random()*3+1)+'px rgba(52,211,153,'+(Math.random()*0.4)+'));';
+                container.appendChild(s);
+            }
+            for (var j = 0; j < (window.innerWidth < 768 ? 35 : 70); j++) {
+                var d = document.createElement('span');
+                d.className = 'glint-dot';
+                var sz = Math.random()*4+2;
+                d.style.cssText = 'top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;--dur:'+(Math.random()*4+2).toFixed(1)+'s;--del:'+(Math.random()*5).toFixed(1)+'s;width:'+sz+'px;height:'+sz+'px;';
+                glints.appendChild(d);
+            }
+            var cc = ['✦','✧','◇','❄','❆','✶'];
+            for (var k = 0; k < (window.innerWidth < 768 ? 20 : 45); k++) {
+                var c = document.createElement('span');
+                c.textContent = cc[Math.floor(Math.random()*cc.length)];
+                c.className = 'crystal-sparkle';
+                c.style.cssText = 'top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;--dur:'+(Math.random()*6+3).toFixed(1)+'s;--del:'+(Math.random()*6).toFixed(1)+'s;--size:'+(Math.random()*12+5).toFixed(0)+'px;';
+                crystals.appendChild(c);
+            }
+        })();
+
+        /* ===== COUNTDOWN ===== */
+        (function() {
+            var t = new Date('2026-05-16T20:00:00').getTime();
+            var dE=document.getElementById('days'),hE=document.getElementById('hours'),mE=document.getElementById('minutes'),sE=document.getElementById('seconds');
+            function u() {
+                var d=t-Date.now();
+                if(d<=0){dE.textContent='00';hE.textContent='00';mE.textContent='00';sE.textContent='00';return;}
+                dE.textContent=(Math.floor(d/86400000)<10?'0':'')+Math.floor(d/86400000);
+                hE.textContent=(Math.floor((d%86400000)/3600000)<10?'0':'')+Math.floor((d%86400000)/3600000);
+                mE.textContent=(Math.floor((d%3600000)/60000)<10?'0':'')+Math.floor((d%3600000)/60000);
+                sE.textContent=(Math.floor((d%60000)/1000)<10?'0':'')+Math.floor((d%60000)/1000);
+            }
+            u(); setInterval(u,1000);
+        })();
+
+        /* ===== SCROLL REVEAL ===== */
+        (function() {
+            var o = new IntersectionObserver(function(e){for(var i=0;i<e.length;i++){if(e[i].isIntersecting)e[i].target.classList.add('visible');}}, {threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+            var els = document.querySelectorAll('.scroll-reveal');
+            for(var i=0;i<els.length;i++) o.observe(els[i]);
+        })();
+
+        /* ===== RSVP ===== */
+        (function(){
+            var form = document.getElementById('rsvpForm');
+            var phone = '584121286092';
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var name = document.getElementById('guestName').value.trim();
+                var att = document.querySelector('input[name="attendance"]:checked').value;
+                var msg = document.getElementById('specialMessage').value.trim();
+                if(!name){ showToast('Por favor ingresa tu nombre', 'error'); return; }
+                var text = '✨ *INVITACIÓN XV AÑOS* ✨\n\nHola, soy *'+name+'*\n\n';
+                text += att==='yes' ? '📌 *Asistencia:* Sí confirmo\n' : '📌 *Asistencia:* No podré asistir\n';
+                if(msg) text += '\n💌 *Mensaje para ti:*\n'+msg+'\n';
+                text += '\nㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ★\n_Enviado desde la invitación digital_';
+                window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text), '_blank');
+                showToast('Redirigiendo a WhatsApp...', 'success');
+            });
+        })();
+
+        /* ===== TOAST ===== */
+        function showToast(msg, type){
+            var c = document.getElementById('toastContainer');
+            var t = document.createElement('div');
+            var bg = type==='success' ? 'bg-emerald-50/90 border-emerald-300/40 text-emerald-600' : 'bg-red-50/90 border-red-400/40 text-red-500';
+            t.className = 'glass '+bg+' border rounded-xl px-5 py-3.5 flex items-center gap-3 text-sm shadow-lg max-w-xs backdrop-blur-lg';
+            t.innerHTML = '<span class="iconify text-lg flex-shrink-0" data-icon="'+(type==='success'?'lucide:check-circle':'lucide:alert-circle')+'"></span><span>'+msg+'</span>';
+            c.appendChild(t);
+            setTimeout(function(){ t.style.transition='all 0.4s ease'; t.style.opacity='0'; t.style.transform='translateX(30px)'; setTimeout(function(){t.remove();},400); }, 3500);
+        }
+    </script>
+</body>
+</html>
